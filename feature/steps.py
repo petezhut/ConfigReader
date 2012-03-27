@@ -2,12 +2,12 @@ from freshen import *
 from freshen.checks import *
 import os
 
-import ReadConfig
+import ConfigReader
 
 @Before
 def before(sc):
     try:
-        scc.config = ReadConfig.ReadConfig()
+        scc.config = ConfigReader.ConfigReader()
     except:
         raise StandardError("Couldn't create the object...")
 
