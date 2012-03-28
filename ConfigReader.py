@@ -68,3 +68,5 @@ if __name__ == "__main__":
     print(C.DEFAULT.fname)
     print(C['DEFAULT'].fname)
     print(C['DEFAULT']['fname'])
+    defs = C.DEFAULT
+    print(getattr(defs, 'lname'))
