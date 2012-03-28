@@ -15,4 +15,5 @@ config.section.item <- This works
 config.section[item] <- This works too!
 config[section].item <- So does this!
 config[section][item] <- As does this!
+getattr(config[section], item) <- And so does this, neato!
 
