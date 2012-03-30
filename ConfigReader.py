@@ -33,7 +33,7 @@ class ConfigReader(object):
             f = open(cfg, 'rb')
             self.__load(map(lambda x: x.strip(), f.readlines()))
             f.close()
-        except IOError, e:
+        except IOError:
             raise StandardError("Couldn't find config file: %s" % (cfg))
 
     def get_sections(self):
