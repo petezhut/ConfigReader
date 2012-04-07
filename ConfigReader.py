@@ -23,7 +23,7 @@ class ConfigReader(object):
                 setattr(self, cursec, section)
             else:
                 k,v = line.split("=")
-                setattr(section, k.strip(), v.strip())
+                setattr(section, k.strip(), v.strip() % section)
 
     def read(self, cfg):
         """
@@ -63,10 +63,11 @@ class ConfigReader(object):
 if __name__ == "__main__":
     C = ConfigReader()
     C.read("test.cfg")
+    print(C.DEFAULT.name)
     print(C.get_sections())
     print(C.DEFAULT['fname'])
-    print(C.DEFAULT.fname)
-    print(C['DEFAULT'].fname)
-    print(C['DEFAULT']['fname'])
-    defs = C.DEFAULT
-    print(getattr(defs, 'lname'))
+#    print(C.DEFAULT.fname)
+#    print(C['DEFAULT'].fname)
+#    print(C['DEFAULT']['fname'])
+#    defs = C.DEFAULT
+#    print(getattr(defs, 'lname'))
