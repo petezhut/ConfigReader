@@ -21,11 +21,7 @@ Feature: Show that using the ConfigReader generates the expected results
             | TYPES     | a         | int               |
             | DEFAULT   | fname     | Elvis             |
             | DEFAULT   | lname     | Pressley          |
+            | DEFAULT   | name      | Pressley, Elvis   | # This is for item resolution
             | test      | a         | 1                 |
             | test      | b         | 2                 |
             | testnames | t1        | This is a test    |
-
-    Scenario: Show that ConfigReader handles item resolution correctly
-        Given a configuration file: test.cfg
-        When the configuration file is loaded no errors are thrown
-        Then DEFAULT, should have a key: name which equals: Pressley, Elvis

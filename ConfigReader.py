@@ -66,6 +66,7 @@ if __name__ == "__main__":
     print(C.DEFAULT.name)
     print(C.get_sections())
     print(C.DEFAULT['fname'])
+    print(C.testnames.t2)
 #    print(C.DEFAULT.fname)
 #    print(C['DEFAULT'].fname)
 #    print(C['DEFAULT']['fname'])
