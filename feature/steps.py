@@ -27,11 +27,14 @@ def checkSections(data):
     assert_true(scc.config.get_sections() == map(lambda x: x.strip(), data.split(",")), 
             "'%s' didn't match '%s'" % (scc.config.get_sections(), map(lambda x: x.strip(), data.split(","))))
 
-
 @Then("(\w+.*), should have a key: (\w+.*) which equals: (\w+.*)")
 def checkValues(section, key, value):
     assert_true(scc.config[section.strip()][key.strip()] == value.strip(),
             "'%s' didn't match '%s'" % (scc.config[section.strip()][key.strip()], value.strip()))
+
+@Then("(\w+.*), should not have a key: (\w+.*)")
+def noItem(section, key):
+    assert_false(scc.config[section.strip()].has_item(key.strip()))
 
 @When("the configuration file is loaded no errors are thrown")
 def loadConfig():

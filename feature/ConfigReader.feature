@@ -11,6 +11,11 @@ Feature: Show that using the ConfigReader generates the expected results
         When the configuration file is loaded no errors are thrown
         Then the sections should be: TYPES,DEFAULT,test,testnames
 
+    Scenario: Show that ConfigReader handles comments correctly (ignore)
+        Given a configuration file: test.cfg
+        When the configuration file is loaded no errors are thrown
+        Then test, should not have a key: this
+
     Scenario Outline: Show that the following Section/Key pairs match the file
         Given a configuration file: test.cfg
         When the configuration file is loaded no errors are thrown
