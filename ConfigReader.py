@@ -21,11 +21,15 @@ class ConfigReader(object):
                 self.sections.append(cursec)
                 section = Section()
                 setattr(self, cursec, section)
-            elif line.startswith(";"):
+            elif line.startswith(";") or line.startswith("#"):
                 next
             else:
-                k,v = line.split("=")
-                setattr(section, k.strip(), v.strip() % section)
+                try:
+                    k,v = line.split("=")
+                except:
+                    k,v = line.split(":")
+                finally:
+                    setattr(section, k.strip(), v.strip() % section)
 
     def read(self, cfg):
         """
@@ -65,6 +69,7 @@ class ConfigReader(object):
 if __name__ == "__main__":
     C = ConfigReader()
     C.read("test.cfg")
+    print(C.get_items('TYPES'))
 #    print(C.DEFAULT.name)
 #    print(C.get_sections())
 #    print(C.DEFAULT['fname'])
