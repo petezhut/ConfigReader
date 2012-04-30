@@ -29,4 +29,5 @@ Feature: Show that using the ConfigReader generates the expected results
             | DEFAULT   | name      | Pressley, Elvis   | # This is for item resolution
             | test      | a         | 1                 |
             | test      | b         | 2                 |
+            | test      | c         | nothing=now       | # This is to test for a value with the same delimiter as the key
             | testnames | t1        | This is a test    |
