@@ -9,7 +9,7 @@ config.get(section, item) <- This is what always annoyed me.  Seems un-pythonic.
 So my reader does the same thing, this way:
 
 import ConfigReader
-config = ConfigReader.ConfigReader(configfile)
+config = ConfigReader.ConfigReader()
 config.read(configfile)
 config.section.item <- This works
 config.section[item] <- This works too!
